@@ -1,4 +1,22 @@
-# Nuxt Module
+# Compression module for Nuxt 3
+
+## Setup
+
+```bash
+yarn install -D @averjs/nuxt-compression
+pnpm add -D @averjs/nuxt-compression
+```
+
+## Usage
+
+```ts
+export default defineNuxtConfig({
+  buildModules: ['@averjs/nuxt-compression'],
+  'content-encoding': {
+    // options
+  },
+});
+```
 
 ## Development
 
