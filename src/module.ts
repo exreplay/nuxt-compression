@@ -10,8 +10,8 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'content-encoding',
-    configKey: 'content-encoding'
+    name: 'compression',
+    configKey: 'compression'
   },
   setup (options, nuxt) {
     nuxt.hook('vite:extend', (context) => {

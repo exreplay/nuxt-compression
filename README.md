@@ -12,7 +12,7 @@ pnpm add -D @averjs/nuxt-compression
 ```ts
 export default defineNuxtConfig({
   buildModules: ['@averjs/nuxt-compression'],
-  'content-encoding': {
+  'compression': {
     // options
   },
 });
