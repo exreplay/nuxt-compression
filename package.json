@@ -37,6 +37,8 @@
     "jiti": "^1.14.0",
     "nuxt": "^3.0.0-rc.6",
     "rollup": "^2.77.0",
-    "standard-version": "^9.5.0"
+    "standard-version": "^9.5.0",
+    "ufo": "^0.8.5",
+    "vue": "^3.2.37"
   }
 }

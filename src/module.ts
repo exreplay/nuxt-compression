@@ -19,6 +19,20 @@ export default defineNuxtModule<ModuleOptions>({
     }
   },
   setup (options, nuxt) {
+    let fileExtension = ''
+    let contentEncoding = ''
+
+    switch (options.viteCompression.algorithm) {
+      case 'gzip':
+        fileExtension = 'gz'
+        contentEncoding = 'gzip'
+        break
+      case 'brotliCompress':
+        fileExtension = 'br'
+        contentEncoding = 'br'
+        break
+    }
+
     nuxt.hook('vite:extend', (context) => {
       context.config.plugins?.push(
         viteCompression(options.viteCompression)
@@ -42,9 +56,9 @@ export async function readAsset (id, res) {
 
   if (assetPath.endsWith('.mjs') || assetPath.endsWith('.css')) {
     try {
-      await fsp.access(\`\${assetPath}.br\`, constants.R_OK | constants.W_OK);
-      assetPath = \`\${assetPath}.br\`;
-      res.setHeader('Content-Encoding', 'br');
+      await fsp.access(\`\${assetPath}.${fileExtension}\`, constants.R_OK | constants.W_OK);
+      assetPath = \`\${assetPath}.${fileExtension}\`;
+      res.setHeader('Content-Encoding', '${contentEncoding}');
     } catch {}
   }
 
