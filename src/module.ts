@@ -4,8 +4,10 @@ import viteCompression from 'vite-plugin-compression'
 import { globbySync } from 'globby'
 import { virtual } from './virtual'
 
+export type ViteCompressionOptions = Parameters<typeof viteCompression>[0];
+
 export interface ModuleOptions {
-  viteCompression?: Parameters<typeof viteCompression>[0];
+  viteCompression?: ViteCompressionOptions;
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -15,10 +17,12 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     viteCompression: {
-      algorithm: 'brotliCompress'
+      algorithm: 'brotliCompress',
+      filter: /\.(js|mjs|json|css|html)$/i
     }
   },
   setup (options, nuxt) {
+    const extRE = options.viteCompression.filter
     let fileExtension = ''
     let contentEncoding = ''
 
@@ -50,11 +54,13 @@ import { dirname } from 'pathe'
 import { fileURLToPath } from 'url'
 import assets from '#internal/nitro/virtual/public-assets-data'
 
+const filterFunction = ${typeof extRE === 'function' ? extRE.toString() : ''}
+
 export async function readAsset (id, res) {
   const serverDir = dirname(fileURLToPath(import.meta.url))
   let assetPath = resolve(serverDir, assets[id].path)
 
-  if (assetPath.endsWith('.mjs') || assetPath.endsWith('.css')) {
+  ${typeof extRE === 'function' ? 'if (filterFunction(assetPath)) {' : 'if (/\\.(js|mjs|json|css|html)$/i.test(assetPath)) {'}
     try {
       await fsp.access(\`\${assetPath}.${fileExtension}\`, constants.R_OK | constants.W_OK);
       assetPath = \`\${assetPath}.${fileExtension}\`;
