@@ -22,7 +22,7 @@ export default defineNuxtModule<ModuleOptions>({
     }
   },
   setup (options, nuxt) {
-    const extRE = options.viteCompression.filter
+    const filter = options.viteCompression.filter
     let fileExtension = ''
     let contentEncoding = ''
 
@@ -54,13 +54,13 @@ import { dirname } from 'pathe'
 import { fileURLToPath } from 'url'
 import assets from '#internal/nitro/virtual/public-assets-data'
 
-const filterFunction = ${typeof extRE === 'function' ? extRE.toString() : ''}
+${typeof filter === 'function' ? `const filterFunction = ${filter.toString()}` : ''}
 
 export async function readAsset (id, res) {
   const serverDir = dirname(fileURLToPath(import.meta.url))
   let assetPath = resolve(serverDir, assets[id].path)
 
-  ${typeof extRE === 'function' ? 'if (filterFunction(assetPath)) {' : 'if (/\\.(js|mjs|json|css|html)$/i.test(assetPath)) {'}
+  if (${typeof filter === 'function' ? 'filterFunction(assetPath)' : '/\\.(js|mjs|json|css|html)$/i.test(assetPath)'}) {
     try {
       await fsp.access(\`\${assetPath}.${fileExtension}\`, constants.R_OK | constants.W_OK);
       assetPath = \`\${assetPath}.${fileExtension}\`;
