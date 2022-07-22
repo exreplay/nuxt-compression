@@ -13,13 +13,15 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'compression',
     configKey: 'compression'
   },
+  defaults: {
+    viteCompression: {
+      algorithm: 'brotliCompress'
+    }
+  },
   setup (options, nuxt) {
     nuxt.hook('vite:extend', (context) => {
       context.config.plugins?.push(
-        viteCompression({
-          ...options.viteCompression,
-          algorithm: 'brotliCompress'
-        })
+        viteCompression(options.viteCompression)
       )
     })
 
