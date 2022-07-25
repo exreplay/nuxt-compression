@@ -21,6 +21,32 @@ export default defineNuxtConfig({
 });
 ```
 
+## Options
+
+### `viteCompression`
+
+* default -
+```ts
+{
+  algorithm: 'brotliCompress',
+  filter: /\.(js|mjs|json|css|html)$/i
+}
+```
+
+Options for the `vite-plugin-compression` plugin
+
+### `maxAge`
+
+* default - `60 * 60 * 24 * 365`
+
+Set the `maxAge` for the `Cache-Control` Header. Can either be a number or a filter function which accepts the asset path and should return a `number`. Be aware, if you use `cacheControl` alongside `maxAge`, it is getting ignored.
+
+### `cacheControl`
+
+* default - `undefined`
+
+Set `Cache-Control` Header. Can either be a string or a filter function which accespts the asset path and should return a valid `Cache-Control` Header string. This option has more weight than `maxAge` and overwrites it. You can head to [MDN](https://developer.mozilla.org/de/docs/Web/HTTP/Headers/Cache-Control) to see all the available options.
+
 ## Development
 
 - Run `pnpm dev:prepare` to generate type stubs.
