@@ -1,0 +1,31 @@
+// Vitest Snapshot v1
+
+exports[`utils > getPublicAssets should match snapshot 1`] = `
+"
+import { promises as fsp, constants } from 'fs'
+import { resolve } from 'pathe'
+import { dirname } from 'pathe'
+import { fileURLToPath } from 'url'
+import assets from '#internal/nitro/virtual/public-assets-data'
+
+const maxAge = 31536000;
+const cacheControl = undefined;
+const filter = /\\\\.(js|mjs|json|css|html)$/i;
+  
+export async function readAsset (id, res) {
+  const serverDir = dirname(fileURLToPath(import.meta.url))
+  let assetPath = resolve(serverDir, assets[id].path)
+
+  if (filter.test(assetPath)) {
+    try {
+      await fsp.access(\`\${assetPath}.br\`, constants.R_OK | constants.W_OK);
+      assetPath = \`\${assetPath}.br\`;
+      res.setHeader('Content-Encoding', 'br');
+    } catch {}
+  }
+
+  res.setHeader(\\"Cache-Control\\", \`max-age=\${maxAge}, immutable\`);
+
+  return fsp.readFile(assetPath);
+}"
+`;
