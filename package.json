@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",
+    "@nuxt/test-utils": "^3.0.0-rc.6",
     "@nuxtjs/eslint-config-typescript": "latest",
     "@types/node": "16.11.47",
     "c8": "^7.12.0",
