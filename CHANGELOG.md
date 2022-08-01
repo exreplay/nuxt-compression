@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.2.1](https://github.com/exreplay/nuxt-compression/compare/v1.2.0...v1.2.1) (2022-08-01)
 
+* added tests ([2f3b1b9](https://github.com/exreplay/nuxt-compression/commit/85a94380d679bf5514f3e5b9a3eead4ed2f7fd36))
+
 ## [1.2.0](https://github.com/exreplay/nuxt-compression/compare/v1.1.0...v1.2.0) (2022-07-25)
 
 
