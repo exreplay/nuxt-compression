@@ -2,6 +2,7 @@
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
+![ci workflow](https://github.com/exreplay/nuxt-compression/actions/workflows/ci.yml/badge.svg)
 
 ## Setup
 
