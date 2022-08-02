@@ -4,6 +4,8 @@
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 ![ci workflow](https://github.com/exreplay/nuxt-compression/actions/workflows/ci.yml/badge.svg)
 
+This is an unofficial compression module for Nuxt 3. Currently it only works with `vite`. It uses `vite-plugin-compression` to generate the compressed files. To make this work and serve those files, this plugin modifies the internal code of the [unjs/nitro](https://github.com/unjs/nitro) package. There is already an issue for an official way to implement some kind of compression which you can check out [here](https://github.com/unjs/nitro/issues/69).
+
 ## Setup
 
 ```bash
