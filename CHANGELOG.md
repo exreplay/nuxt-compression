@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/exreplay/nuxt-compression/compare/v1.2.1...v1.2.2) (2022-08-27)
+
+
+### Chores
+
+* **deps:** update all non-major dependencies ([#5](https://github.com/exreplay/nuxt-compression/issues/5)) ([ee96b8e](https://github.com/exreplay/nuxt-compression/commit/ee96b8effc1b83aac826f9177306366e8b4c3536))
+* updated changelog ([50d06a2](https://github.com/exreplay/nuxt-compression/commit/50d06a2e40c4f07c65abc74c283306c73a5c2a64))
+* updated readme ([67499d2](https://github.com/exreplay/nuxt-compression/commit/67499d2c93f698abdfb68f0873066c32592077d6))
+
 ### [1.2.1](https://github.com/exreplay/nuxt-compression/compare/v1.2.0...v1.2.1) (2022-08-01)
 
 * added tests ([2f3b1b9](https://github.com/exreplay/nuxt-compression/commit/85a94380d679bf5514f3e5b9a3eead4ed2f7fd36))
