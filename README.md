@@ -1,3 +1,6 @@
+# !!!Archived!!!
+Nitro now has an option `compressPublicAssets` which can be used in nuxt3. Please consider using that. https://nitro.unjs.io/config#compresspublicassets
+
 # Compression module for Nuxt 3
 
 [![npm version][npm-version-src]][npm-version-href]
